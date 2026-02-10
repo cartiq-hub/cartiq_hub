@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="google-site-verification" content="jXV-AH7gtazcscauvhimLLoNnkPUEdBfxnm_YXj1jQ8" />
+<title>CartIQ Hub – Smart Shopping Made Simple</title>
+
+<meta name="description" content="CartIQ Hub is a smart shopping assistant with real-time list sharing, AI insights, and seamless family collaboration." />
+
+<style>
+:root {
+  --green: #22c55e;
+  --green-soft: #dcfce7;
+  --bg-light: #f7f6f2;
+  --bg-dark: #0f172a;
+  --surface: #ffffff;
+  --surface-dark: #1e293b;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+
+.hero-icon {
+  font-size: 72px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: auto;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 80px;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* CTA */
+.cta {
+  margin-top: 100px;
+  background: var(--green-soft);
+  border-radius: var(--radius-lg);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+.cta p {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: var(--text-main);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  margin-top: 80px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--green);
+  text-decoration: none;
+  margin: 0 8px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-icon">🛒</div>
+    <h1>CartIQ Hub</h1>
+    <p>Your calm, intelligent shopping assistant — real-time lists, family sharing, and smart insights that just work.</p>
+  </section>
+
+  <section class="features">
+  <div class="card">
+    <div class="card-icon">🎤</div>
+    <h3>VoiceFlow AI</h3>
+    <p>Hands-free batch entry. Speak naturally and add multiple items to your list in seconds.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">📷</div>
+    <h3>SmartScan AI</h3>
+    <p>Scan barcodes or ingredients and get healthier alternatives ranked by an 80+ score system.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🤝</div>
+    <h3>Real-time Sync</h3>
+    <p>Instant collaboration with family using live listeners, FCM notifications, and secure join codes.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🔐</div>
+    <h3>Biometric Security</h3>
+    <p>Fast and secure access using Fingerprint or Face ID, protected by Android Keystore.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">📊</div>
+    <h3>Health Impact Tracking</h3>
+    <p>Monitor clean-cart streaks and health insights with smooth, animated Vico charts.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🕒</div>
+    <h3>Activity History</h3>
+    <p>Every add, edit, or delete is tracked — see who changed what and when, with full transparency.</p>
+  </div>
+</section>
+  <section class="cta">
+    <h2>Built for Real Households</h2>
+    <p>Designed to reduce friction, not add noise.</p>
+
+    <div class="cta-buttons">
+      <a href="privacy-policy.html" class="btn btn-primary">Privacy Policy</a>
+      <a href="terms-of-service.html" class="btn btn-secondary">Terms of Service</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 CartIQ Hub</p>
+    <p>
+      <a href="privacy-policy.html">Privacy</a> •
+      <a href="terms-of-service.html">Terms</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
+
+
