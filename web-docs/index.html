@@ -4,116 +4,586 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jXV-AH7gtazcscauvhimLLoNnkPUEdBfxnm_YXj1jQ8" />
-    <title>CartIQ Hub - Smart Shopping Made Simple</title>
+    <title>CartIQ Hub - AI-Powered Smart Shopping & Meal Planning</title>
+    <meta name="description" content="Your AI-powered shopping companion with voice commands, barcode scanning, health analysis, and smart meal planning. Shop healthier, faster, and smarter.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        :root {
+            --primary-green: #00C853;
+            --primary-green-light: #69F0AE;
+            --primary-green-dark: #00A343;
+            --deep-teal: #0D7C8E;
+            --deep-teal-dark: #006978;
+            --accent-lime: #9CCC65;
+            --background: #F9F7F2;
+            --surface: #FFFFFF;
+            --text-primary: #1A1C1E;
+            --text-secondary: #43474E;
+            --sunset-orange: #FF9800;
+            --sunset-red: #FF5722;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #10b981 0%, #0f766e 100%);
+            color: var(--text-primary);
+            background: linear-gradient(-45deg, #00C853, #0D7C8E, #9CCC65, #00BFA5);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Animated background circles */
+        .bg-decoration {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .circle1 {
+            width: 500px;
+            height: 500px;
+            background: var(--primary-green);
+            top: -150px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .circle2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-lime);
+            bottom: -100px;
+            right: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .circle3 {
+            width: 300px;
+            height: 300px;
+            background: var(--deep-teal);
+            top: 50%;
+            right: 10%;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
-        .container {
-            max-width: 600px;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+
+        /* Hero Section */
+        .hero {
             text-align: center;
+            padding: 80px 20px 60px;
+            animation: fadeInUp 1s ease;
         }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
         .logo {
-            font-size: 5em;
-            margin-bottom: 20px;
+            font-size: 8em;
+            animation: pulse 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(0, 200, 83, 0.4));
+            position: relative;
+            z-index: 2;
         }
+
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 200, 83, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
         h1 {
-            color: #10b981;
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 4em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-green), var(--deep-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease 0.2s both;
         }
+
         .tagline {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            font-weight: 500;
+            font-size: 1.5em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.4s both;
         }
+
         .description {
-            color: #444;
-            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: var(--text-primary);
+            max-width: 700px;
+            margin: 0 auto 50px;
             line-height: 1.8;
+            animation: fadeInUp 1s ease 0.6s both;
         }
-        .links {
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 200, 83, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .feature-card:nth-child(even) .feature-icon {
+            animation-delay: -1.5s;
+        }
+
+        .feature-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Buttons */
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .cta-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
-        .link-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #10b981;
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            font-size: 1.1em;
             font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            text-decoration: none;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
-        .link-button:hover {
-            background: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
-        .link-button.secondary {
-            background: #0f766e;
-            box-shadow: 0 4px 15px rgba(15, 118, 110, 0.3);
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
-        .link-button.secondary:hover {
-            background: #0d5e58;
-            box-shadow: 0 6px 20px rgba(15, 118, 110, 0.4);
+
+        .btn span {
+            position: relative;
+            z-index: 1;
         }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-green-dark));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 200, 83, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--deep-teal), var(--deep-teal-dark));
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(13, 124, 142, 0.4);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-green), var(--deep-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Footer */
         .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #e5e7eb;
-            color: #999;
-            font-size: 0.9em;
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-top: 80px;
+            border-top: 1px solid rgba(0, 200, 83, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-green-dark);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .logo {
+                font-size: 5em;
+            }
+
+            .tagline {
+                font-size: 1.2em;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes loadingDots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="bg-decoration circle1"></div>
+    <div class="bg-decoration circle2"></div>
+    <div class="bg-decoration circle3"></div>
+
     <div class="container">
-        <div class="logo">🛒</div>
-        <h1>CartIQ Hub</h1>
-        <p class="tagline">Smart Shopping Made Simple</p>
-
-        <p class="description">
-            Your AI-powered shopping companion that helps you make healthier choices,
-            manage your grocery lists, and shop smarter with voice commands and barcode scanning.
-        </p>
-
-        <div class="links">
-            <a href="privacy-policy.html" class="link-button">Privacy Policy</a>
-            <a href="terms-of-service.html" class="link-button secondary">Terms of Service</a>
-        </div>
-
-        <div class="footer">
-            <p>© 2026 CartIQ Hub. All rights reserved.</p>
-            <p>Designed for healthy households.</p>
-            <p style="margin-top: 15px;">
-                <a href="privacy-policy.html" style="color: #10b981; text-decoration: none; font-weight: 600;">Privacy Policy</a> |
-                <a href="terms-of-service.html" style="color: #10b981; text-decoration: none; font-weight: 600;">Terms of Service</a>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <div class="logo">🛒</div>
+            </div>
+            <h1>CartIQ Hub</h1>
+            <p class="tagline">AI-Powered Smart Shopping & Meal Planning</p>
+            <p class="description">
+                Your intelligent shopping companion that combines voice commands, barcode scanning, 
+                and AI-powered health analysis to help you shop smarter, eat healthier, and plan better meals. 
+                Experience the future of grocery shopping today.
             </p>
-        </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
+                <h3 class="feature-title">VoiceFlow AI</h3>
+                <p class="feature-description">
+                    Add items to your list naturally using voice commands. Just speak, and AI understands your needs instantly.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Smart Barcode Scanner</h3>
+                <p class="feature-description">
+                    Scan any product to get instant health analysis, nutrition facts, and healthier alternatives powered by AI.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🥗</div>
+                <h3 class="feature-title">Health Analysis</h3>
+                <p class="feature-description">
+                    Get personalized health scores and smart swap recommendations to make healthier choices effortlessly.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🍽️</div>
+                <h3 class="feature-title">AI Meal Planner</h3>
+                <p class="feature-description">
+                    Receive intelligent recipe suggestions and meal plans based on your shopping list and dietary preferences.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3 class="feature-title">Family Sharing</h3>
+                <p class="feature-description">
+                    Share shopping lists with family members in real-time. Collaborate and stay synced effortlessly.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Proactive Intelligence</h3>
+                <p class="feature-description">
+                    Smart insights about your shopping habits, urgent items, and personalized recommendations just for you.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3 class="feature-title">Smart Optimizer</h3>
+                <p class="feature-description">
+                    Optimize your shopping route, find better deals, and never forget essential items with AI suggestions.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <h3 class="feature-title">Beautiful Design</h3>
+                <p class="feature-description">
+                    Gorgeous Material Design 3 interface with auto dark/light mode that adapts to your preferences.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-number">AI</div>
+                <div class="stat-label">Powered Intelligence</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Product Database</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Smart Assistant</div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 style="font-size: 2.5em; margin-bottom: 30px; color: var(--text-primary);">
+                Start Shopping Smarter Today
+            </h2>
+            <div class="cta-buttons">
+                <a href="privacy-policy.html" class="btn btn-primary">
+                    <span>📋 Privacy Policy</span>
+                </a>
+                <a href="terms-of-service.html" class="btn btn-secondary">
+                    <span>📜 Terms of Service</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <span style="color: var(--text-secondary);">•</span>
+                <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+            </div>
+            <div class="footer-text">
+                <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 10px;">
+                    © 2026 CartIQ Hub. All rights reserved.
+                </p>
+                <p>Designed for healthy households. Built with ❤️ for smarter shopping.</p>
+                <p style="margin-top: 15px; font-size: 0.9em;">
+                    🛒 Shop Smarter • 🥗 Eat Healthier • 🎯 Live Better
+                </p>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
