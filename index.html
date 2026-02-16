@@ -1,237 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="google-site-verification" content="jXV-AH7gtazcscauvhimLLoNnkPUEdBfxnm_YXj1jQ8" />
-<title>CartIQ Hub – Smart Shopping Made Simple</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="jXV-AH7gtazcscauvhimLLoNnkPUEdBfxnm_YXj1jQ8" />
+    <title>CartIQ Hub – Smart Shopping Made Simple</title>
+    <meta name="description" content="CartIQ Hub: The AI-powered shopping assistant. SmartScan, VoiceFlow, and the Evidence-Engine methodology for healthier households." />
 
-<meta name="description" content="CartIQ Hub is a smart shopping assistant with real-time list sharing, AI insights, and seamless family collaboration." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --green: #22c55e;
-  --green-soft: #dcfce7;
-  --bg-light: #f7f6f2;
-  --bg-dark: #0f172a;
-  --surface: #ffffff;
-  --surface-dark: #1e293b;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --radius-lg: 24px;
-  --radius-md: 16px;
-}
+    <style>
+        :root {
+            --green-primary: #22c55e;
+            --teal-deep: #0f766e;
+            --bg-sandy: #fdfcf9;
+            --surface-pure: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius-lg: 32px;
+            --radius-md: 18px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+        [data-theme="dark"] {
+            --bg-sandy: #0b1120;
+            --surface-pure: #161e2d;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #2d3748;
+        }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--bg-light);
-  color: var(--text-main);
-  line-height: 1.6;
-}
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-sandy);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease;
+        }
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 80px 20px 60px;
-}
+        .container { max-width: 1200px; margin: auto; padding: 0 24px; }
 
-.hero-icon {
-  font-size: 72px;
-  margin-bottom: 20px;
-}
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--green-primary); display: flex; align-items: center; gap: 10px; }
+        
+        .theme-toggle {
+            background: var(--surface-pure);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
+        /* Hero Showcase */
+        .hero { text-align: center; padding: 80px 0 60px; }
+        
+        .hero-badge {
+            background: #dcfce7;
+            color: var(--teal-deep);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        [data-theme="dark"] .hero-badge { background: #064e3b; color: #34d399; }
 
-.hero p {
-  max-width: 640px;
-  margin: auto;
-  font-size: 1.1rem;
-  color: var(--text-muted);
-}
+        .hero h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.04em; }
+        .hero p { max-width: 650px; margin: 0 auto 40px; font-size: 1.3rem; color: var(--text-muted); font-weight: 400; }
 
-/* FEATURES */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  margin-top: 80px;
-}
+        .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 18px 36px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary { background: var(--green-primary); color: white; box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(34, 197, 94, 0.3); }
+        .btn-outline { border: 1px solid var(--border); color: var(--text-main); background: var(--surface-pure); }
 
-.card {
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  border: 1px solid #e5e7eb;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+        /* Scroll Animation Utility */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-}
+        /* Device Showcase Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0 100px;
+        }
 
-.card-icon {
-  font-size: 32px;
-  margin-bottom: 14px;
-}
+        .phone-mockup {
+            background: #000;
+            border: 12px solid #1e293b;
+            border-radius: 42px;
+            overflow: hidden;
+            aspect-ratio: 9/19.5;
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);
+            position: relative;
+            transition: var(--transition);
+        }
+        .phone-mockup:hover { transform: scale(1.02); }
+        .phone-mockup img { width: 100%; height: 100%; object-fit: cover; }
+        .mockup-label { margin-top: 20px; font-weight: 700; text-align: center; font-size: 1.2rem; }
 
-.card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-}
+        /* Impact Section (Methodology) */
+        .impact-section {
+            background: var(--surface-pure);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 80px 60px;
+            margin: 120px 0;
+            box-shadow: 0 40px 100px -20px rgba(0,0,0,0.05);
+        }
 
-.card p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
+        .impact-header { text-align: center; margin-bottom: 50px; }
+        .impact-header h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
+        .impact-header h3 { font-size: 1.8rem; margin-top: 40px; }
 
-/* CTA */
-.cta {
-  margin-top: 100px;
-  background: var(--green-soft);
-  border-radius: var(--radius-lg);
-  padding: 60px 20px;
-  text-align: center;
-}
+        .chart-container {
+            max-width: 850px;
+            margin: 0 auto 60px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
 
-.cta h2 {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
-}
+        /* Glassmorphism Formula Box */
+        .methodology-box {
+            background: rgba(34, 197, 94, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(15, 118, 110, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            margin: 50px 0;
+        }
 
-.cta p {
-  color: var(--text-muted);
-  margin-bottom: 32px;
-}
+        .formula {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--teal-deep);
+            background: rgba(255,255,255,0.6);
+            padding: 20px;
+            border-radius: 16px;
+            display: inline-block;
+            margin: 30px 0;
+            border: 1px dashed var(--teal-deep);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        [data-theme="dark"] .formula { background: rgba(0,0,0,0.4); color: #4ade80; border-color: #4ade80; }
 
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
+        .method-list {
+            list-style: none;
+            text-align: left;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .method-list li {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+        .method-list li strong { color: var(--text-main); }
+        .method-list li::before { content: "✓"; color: var(--green-primary); position: absolute; left: 0; font-weight: 900; font-size: 1.2rem; top: 0; }
 
-.btn {
-  padding: 14px 28px;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
+        .transparency-footer {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 950px;
+            margin: 60px auto 0;
+            line-height: 1.7;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+        }
 
-.btn-primary {
-  background: var(--green);
-  color: white;
-}
+        /* Final Footer */
+        footer { padding: 100px 0 60px; text-align: center; border-top: 1px solid var(--border); }
+        .footer-credit { font-weight: 600; font-size: 1.1rem; margin-bottom: 15px; }
 
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-.btn-secondary {
-  background: white;
-  border: 1px solid #e5e7eb;
-  color: var(--text-main);
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  margin-top: 80px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: var(--green);
-  text-decoration: none;
-  margin: 0 8px;
-}
-</style>
+        @media (max-width: 768px) {
+            .impact-section { padding: 40px 24px; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.1rem; }
+            .impact-header h2 { font-size: 2.2rem; }
+            .methodology-box { padding: 24px; }
+            .formula { font-size: 0.9rem; width: 100%; }
+        }
+    </style>
 </head>
+<body data-theme="dark">
 
-<body>
 <div class="container">
+    <nav>
+        <div class="logo">🛒 CartIQ Hub</div>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light Mode</button>
+    </nav>
 
-  <section class="hero">
-    <div class="hero-icon">🛒</div>
-    <h1>CartIQ Hub</h1>
-    <p>Your calm, intelligent shopping assistant — real-time lists, family sharing, and smart insights that just work.</p>
-  </section>
+    <header class="hero reveal">
+        <span class="hero-badge">Next-Gen Family Shopping</span>
+        <h1>Smart Shopping <br><span style="color: var(--green-primary)">Made Simple.</span></h1>
+        <p>The calm, intelligent shopping assistant that builds healthier households with data-driven insights.</p>
+        <div class="btn-group">
+             <a href="#features" class="btn btn-primary">Get Started Free</a>
+             <a href="#impact" class="btn btn-outline">Explore Methodology</a>
+        </div>
+    </header>
 
-  <section class="features">
-  <div class="card">
-    <div class="card-icon">🎤</div>
-    <h3>VoiceFlow AI</h3>
-    <p>Hands-free batch entry. Speak naturally and add multiple items to your list in seconds.</p>
-  </div>
+    <section class="showcase-grid" id="features">
+        <div class="reveal">
+            <div class="phone-mockup"><img src="homescreen.jpg" alt="Home Screen"></div>
+            <p class="mockup-label">Intelligent Home</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s;">
+            <div class="phone-mockup"><img src="SmartScanAI.jpg" alt="Smart Scan"></div>
+            <p class="mockup-label">SmartScan AI</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.3s;">
+            <div class="phone-mockup"><img src="voiceflow.jpg" alt="Voice Flow"></div>
+            <p class="mockup-label">VoiceFlow Entry</p>
+        </div>
+    </section>
 
-  <div class="card">
-    <div class="card-icon">📷</div>
-    <h3>SmartScan AI</h3>
-    <p>Scan barcodes or ingredients and get healthier alternatives ranked by an 80+ score system.</p>
-  </div>
+    <section class="impact-section reveal" id="impact">
+        <div class="impact-header">
+            <span style="color:var(--green-primary); font-weight:bold; text-transform:uppercase; letter-spacing:2px; font-size:0.8rem;">The Evidence-Engine</span>
+            <h2>App Info & Impact</h2>
+        </div>
 
-  <div class="card">
-    <div class="card-icon">🤝</div>
-    <h3>Real-time Sync</h3>
-    <p>Instant collaboration with family using live listeners, FCM notifications, and secure join codes.</p>
-  </div>
+        <div class="chart-container">
+            <img src="Chart.jpg" alt="Health Impact Chart" style="width:100%; display:block;">
+        </div>
 
-  <div class="card">
-    <div class="card-icon">🔐</div>
-    <h3>Biometric Security</h3>
-    <p>Fast and secure access using Fingerprint or Face ID, protected by Android Keystore.</p>
-  </div>
+        <div class="impact-header">
+            <h3>Science, Not Guesses</h3>
+            <p style="max-width:700px; margin:15px auto 0; font-size: 1.15rem;">Your health score is an objective calculation based on three world-class nutritional standards.</p>
+        </div>
 
-  <div class="card">
-    <div class="card-icon">📊</div>
-    <h3>Health Impact Tracking</h3>
-    <p>Monitor clean-cart streaks and health insights with smooth, animated Vico charts.</p>
-  </div>
+        <div class="methodology-box">
+            <h4 style="color:var(--teal-deep); font-weight:800; font-size: 1.3rem;">Single Source of Truth: CartIQ Scoring</h4>
+            <div class="formula">
+                Score = Nutri-Score (60%) + NOVA Group (30%) + Additives (10%)
+            </div>
 
-  <div class="card">
-    <div class="card-icon">🕒</div>
-    <h3>Activity History</h3>
-    <p>Every add, edit, or delete is tracked — see who changed what and when, with full transparency.</p>
-  </div>
-</section>
-  <section class="cta">
-    <h2>Built for Real Households</h2>
-    <p>Designed to reduce friction, not add noise.</p>
+            <ul class="method-list">
+                <li><strong>Nutri-Score:</strong> Measures overall nutritional density, penalizing excessive sugar and sodium while rewarding protein and fiber.</li>
+                <li><strong>NOVA Group:</strong> Identifies ultra-processing levels to help you move away from industrial food substances.</li>
+                <li><strong>Additive Guard:</strong> Enforces EFSA, IARC & EPA standards—flagging 27+ restricted additives including E171, nitrites, and aspartame.</li>
+            </ul>
+        </div>
 
-    <div class="cta-buttons">
-      <a href="privacy-policy.html" class="btn btn-primary">Privacy Policy</a>
-      <a href="terms-of-service.html" class="btn btn-secondary">Terms of Service</a>
-    </div>
-  </section>
+        <div class="transparency-footer">
+            All scores are calculated using lab-verified data from <strong>OpenFoodFacts</strong> combined with <strong>EFSA</strong>, <strong>IARC</strong>, and <strong>EPA</strong> regulatory standards. Scientific red flags include E171 (Titanium Dioxide), nitrites, and IARC Group 2B carcinogens. No AI guessing—only peer-reviewed evidence powering your Barcode Scanner and Discovery Dinner.
+        </div>
+    </section>
 
-  <footer>
-    <p>© 2026 CartIQ Hub</p>
-    <p>
-      <a href="privacy-policy.html">Privacy</a> •
-      <a href="terms-of-service.html">Terms</a>
-    </p>
-  </footer>
+    <section class="showcase-grid" style="grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));">
+        <div class="reveal">
+            <div class="phone-mockup" style="aspect-ratio: 16/10; height:auto; border-radius:24px;">
+                <img src="cartIQ%20Score.jpg" alt="CartIQ Score Detail">
+            </div>
+            <p class="mockup-label">Basket Optimization</p>
+        </div>
+        <div class="reveal">
+            <div class="phone-mockup" style="aspect-ratio: 16/10; height:auto; border-radius:24px;">
+                <img src="quicksettings.jpg" alt="Quick Actions">
+            </div>
+            <p class="mockup-label">Quick Actions Drawer</p>
+        </div>
+    </section>
 
+    <footer>
+        <div class="footer-credit">Designed with ❤️ for healthier households in Port St. Lucie.</div>
+        <p style="color: var(--text-muted); font-size:0.9rem;">© 2026 CartIQ Hub • Version 1.0.4</p>
+        <div style="margin-top:25px;">
+            <a href="privacy-policy.html" style="color:var(--text-muted); margin:0 15px; text-decoration:none;">Privacy</a>
+            <a href="terms-of-service.html" style="color:var(--text-muted); margin:0 15px; text-decoration:none;">Terms</a>
+            <a href="mailto:support@cartiqhub.com" style="color:var(--text-muted); margin:0 15px; text-decoration:none;">Support</a>
+        </div>
+    </footer>
 </div>
+
+<script>
+    // Theme Toggle Logic
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('themeBtn');
+        const isDark = body.getAttribute('data-theme') === 'dark';
+        
+        body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        btn.innerHTML = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
+    }
+
+    // High-Performance Scroll Reveal
+    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Reveal only once
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+
 </body>
 </html>
-
-
