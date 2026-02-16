@@ -61,7 +61,6 @@
             font-size: 0.9rem;
             color: var(--text-main);
             transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         /* Hero */
@@ -105,11 +104,10 @@
             box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);
             transition: var(--transition);
         }
-        .phone-mockup:hover { transform: scale(1.02); }
         .phone-mockup img { width: 100%; height: 100%; object-fit: cover; }
         .mockup-label { margin-top: 15px; font-weight: 700; text-align: center; font-size: 1.1rem; color: var(--text-main); }
 
-        /* Methodology Section */
+        /* --- HOW IT WORKS / EVIDENCE ENGINE --- */
         .impact-section {
             background: var(--surface-pure);
             border: 1px solid var(--border);
@@ -120,7 +118,50 @@
         }
         .impact-header { text-align: center; margin-bottom: 50px; }
         .impact-header h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
-        
+
+        /* Animated CSS Donut Chart for Evidence Engine */
+        .chart-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .donut-container {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--green-primary) 0% 60%, 
+                #34d399 60% 90%, 
+                #059669 90% 100%
+            );
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
+            animation: rotateIn 1.5s ease-out;
+        }
+        .donut-container::after {
+            content: "85";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            background: var(--surface-pure);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--green-primary);
+        }
+
+        @keyframes rotateIn {
+            from { transform: rotate(-180deg) scale(0.5); opacity: 0; }
+            to { transform: rotate(0deg) scale(1); opacity: 1; }
+        }
+
         .methodology-box {
             background: rgba(34, 197, 94, 0.05);
             backdrop-filter: blur(12px);
@@ -132,7 +173,7 @@
 
         .formula {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--teal-deep);
             background: rgba(255,255,255,0.6);
             padding: 15px 25px;
@@ -174,7 +215,7 @@
         <h1>Smart Shopping <br><span style="color: var(--green-primary)">Made Simple.</span></h1>
         <p>The calm, intelligent shopping assistant that builds healthier households with data-driven insights.</p>
         <div class="btn-group">
-             <a href="#impact" class="btn btn-primary">Explore Methodology</a>
+             <a href="#impact" class="btn btn-primary">How it Works</a>
              <a href="mailto:support@cartiqhub.com" class="btn btn-outline">Contact Support</a>
         </div>
     </header>
@@ -197,8 +238,12 @@
     <section class="impact-section reveal" id="impact">
         <div class="impact-header">
             <span style="color:var(--green-primary); font-weight:bold; text-transform:uppercase; letter-spacing:2px; font-size:0.8rem;">The Evidence-Engine</span>
-            <h2>The Methodology</h2>
-            <p style="max-width:700px; margin:15px auto 0; font-size: 1.1rem;">An objective calculation based on world-class peer-reviewed scientific evidence.</p>
+            <h2>How it Works</h2>
+            <p style="max-width:700px; margin:15px auto 0; font-size: 1.1rem;">Your health score is an objective calculation based on three world-class peer-reviewed scientific standards.</p>
+        </div>
+
+        <div class="chart-visual">
+            <div class="donut-container"></div>
         </div>
 
         <div class="methodology-box">
@@ -208,9 +253,9 @@
             </div>
 
             <ul class="method-list">
-                <li><strong>Nutri-Score:</strong> Measures overall nutritional density based on sugar, salt, and protein.</li>
-                <li><strong>NOVA Group:</strong> Identifies processing levels from fresh to ultra-processed.</li>
-                <li><strong>Additive Guard:</strong> Flags 27+ restricted additives based on EFSA, IARC, & EPA standards.</li>
+                <li><strong>Nutri-Score (60%):</strong> Measures overall nutritional density based on sugar, salt, and protein.</li>
+                <li><strong>NOVA Group (30%):</strong> Identifies processing levels from fresh to ultra-processed.</li>
+                <li><strong>Additive Guard (10%):</strong> Flags 27+ restricted additives based on EFSA, IARC, & EPA standards.</li>
             </ul>
         </div>
 
@@ -229,8 +274,8 @@
             <p class="mockup-label">Quick Actions Drawer</p>
         </div>
         <div class="reveal" style="transition-delay: 0.2s;">
-            <div class="phone-mockup"><img src="homescreen.jpg" alt="Sync Features" style="filter: hue-rotate(45deg);"></div>
-            <p class="mockup-label">Family Sync Hub</p>
+            <div class="phone-mockup"><img src="Chart.jpg" alt="Health Tracking"></div>
+            <p class="mockup-label">Impact Tracking</p>
         </div>
     </section>
 
