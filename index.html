@@ -64,9 +64,8 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        /* Hero Showcase */
+        /* Hero */
         .hero { text-align: center; padding: 80px 0 60px; }
-        
         .hero-badge {
             background: #dcfce7;
             color: var(--teal-deep);
@@ -80,75 +79,48 @@
             letter-spacing: 1px;
         }
         [data-theme="dark"] .hero-badge { background: #064e3b; color: #34d399; }
-
         .hero h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.04em; }
-        .hero p { max-width: 650px; margin: 0 auto 40px; font-size: 1.3rem; color: var(--text-muted); font-weight: 400; }
+        .hero p { max-width: 650px; margin: 0 auto 40px; font-size: 1.3rem; color: var(--text-muted); }
 
+        /* Buttons */
         .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .btn {
-            padding: 18px 36px;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .btn { padding: 18px 36px; border-radius: 16px; text-decoration: none; font-weight: 700; transition: var(--transition); display: inline-flex; align-items: center; gap: 10px; }
         .btn-primary { background: var(--green-primary); color: white; box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(34, 197, 94, 0.3); }
         .btn-outline { border: 1px solid var(--border); color: var(--text-main); background: var(--surface-pure); }
 
-        /* Scroll Animation Utility */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Device Showcase Grid */
+        /* Unified Grid System */
         .showcase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin: 60px 0 100px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0 80px;
         }
 
         .phone-mockup {
             background: #000;
-            border: 12px solid #1e293b;
-            border-radius: 42px;
+            border: 10px solid #1e293b;
+            border-radius: 38px;
             overflow: hidden;
             aspect-ratio: 9/19.5;
             box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);
-            position: relative;
             transition: var(--transition);
         }
         .phone-mockup:hover { transform: scale(1.02); }
         .phone-mockup img { width: 100%; height: 100%; object-fit: cover; }
-        .mockup-label { margin-top: 20px; font-weight: 700; text-align: center; font-size: 1.2rem; }
+        .mockup-label { margin-top: 15px; font-weight: 700; text-align: center; font-size: 1.1rem; color: var(--text-main); }
 
-        /* Impact Section (Methodology) */
+        /* Methodology Section */
         .impact-section {
             background: var(--surface-pure);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 80px 60px;
-            margin: 120px 0;
+            margin: 100px 0;
             box-shadow: 0 40px 100px -20px rgba(0,0,0,0.05);
         }
-
         .impact-header { text-align: center; margin-bottom: 50px; }
         .impact-header h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
-        .impact-header h3 { font-size: 1.8rem; margin-top: 40px; }
-
-        .chart-container {
-            max-width: 850px;
-            margin: 0 auto 60px;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-
-        /* Glassmorphism Formula Box */
+        
         .methodology-box {
             background: rgba(34, 197, 94, 0.05);
             backdrop-filter: blur(12px);
@@ -156,61 +128,36 @@
             border-radius: 24px;
             padding: 40px;
             text-align: center;
-            margin: 50px 0;
         }
 
         .formula {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--teal-deep);
             background: rgba(255,255,255,0.6);
-            padding: 20px;
-            border-radius: 16px;
+            padding: 15px 25px;
+            border-radius: 12px;
             display: inline-block;
-            margin: 30px 0;
+            margin: 25px 0;
             border: 1px dashed var(--teal-deep);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
         [data-theme="dark"] .formula { background: rgba(0,0,0,0.4); color: #4ade80; border-color: #4ade80; }
 
-        .method-list {
-            list-style: none;
-            text-align: left;
-            max-width: 750px;
-            margin: 0 auto;
-        }
-        .method-list li {
-            margin-bottom: 20px;
-            padding-left: 30px;
-            position: relative;
-            font-size: 1.05rem;
-            color: var(--text-muted);
-        }
-        .method-list li strong { color: var(--text-main); }
-        .method-list li::before { content: "✓"; color: var(--green-primary); position: absolute; left: 0; font-weight: 900; font-size: 1.2rem; top: 0; }
+        .method-list { list-style: none; text-align: left; max-width: 750px; margin: 0 auto; }
+        .method-list li { margin-bottom: 15px; padding-left: 30px; position: relative; color: var(--text-muted); }
+        .method-list li::before { content: "✓"; color: var(--green-primary); position: absolute; left: 0; font-weight: 900; }
 
-        .transparency-footer {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-align: center;
-            max-width: 950px;
-            margin: 60px auto 0;
-            line-height: 1.7;
-            border-top: 1px solid var(--border);
-            padding-top: 40px;
-        }
+        .transparency-footer { font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border); }
 
-        /* Final Footer */
+        /* Animation Utility */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
         footer { padding: 100px 0 60px; text-align: center; border-top: 1px solid var(--border); }
-        .footer-credit { font-weight: 600; font-size: 1.1rem; margin-bottom: 15px; }
 
         @media (max-width: 768px) {
             .impact-section { padding: 40px 24px; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.1rem; }
-            .impact-header h2 { font-size: 2.2rem; }
-            .methodology-box { padding: 24px; }
-            .formula { font-size: 0.9rem; width: 100%; }
+            .hero h1 { font-size: 2.6rem; }
         }
     </style>
 </head>
@@ -227,21 +174,21 @@
         <h1>Smart Shopping <br><span style="color: var(--green-primary)">Made Simple.</span></h1>
         <p>The calm, intelligent shopping assistant that builds healthier households with data-driven insights.</p>
         <div class="btn-group">
-             <a href="#features" class="btn btn-primary">Get Started Free</a>
-             <a href="#impact" class="btn btn-outline">Explore Methodology</a>
+             <a href="#impact" class="btn btn-primary">Explore Methodology</a>
+             <a href="mailto:support@cartiqhub.com" class="btn btn-outline">Contact Support</a>
         </div>
     </header>
 
-    <section class="showcase-grid" id="features">
+    <section class="showcase-grid">
         <div class="reveal">
             <div class="phone-mockup"><img src="homescreen.jpg" alt="Home Screen"></div>
             <p class="mockup-label">Intelligent Home</p>
         </div>
-        <div class="reveal" style="transition-delay: 0.15s;">
+        <div class="reveal" style="transition-delay: 0.1s;">
             <div class="phone-mockup"><img src="SmartScanAI.jpg" alt="Smart Scan"></div>
             <p class="mockup-label">SmartScan AI</p>
         </div>
-        <div class="reveal" style="transition-delay: 0.3s;">
+        <div class="reveal" style="transition-delay: 0.2s;">
             <div class="phone-mockup"><img src="voiceflow.jpg" alt="Voice Flow"></div>
             <p class="mockup-label">VoiceFlow Entry</p>
         </div>
@@ -250,48 +197,40 @@
     <section class="impact-section reveal" id="impact">
         <div class="impact-header">
             <span style="color:var(--green-primary); font-weight:bold; text-transform:uppercase; letter-spacing:2px; font-size:0.8rem;">The Evidence-Engine</span>
-            <h2>App Info & Impact</h2>
-        </div>
-
-        <div class="chart-container">
-            <img src="Chart.jpg" alt="Health Impact Chart" style="width:100%; display:block;">
-        </div>
-
-        <div class="impact-header">
-            <h3>Science, Not Guesses</h3>
-            <p style="max-width:700px; margin:15px auto 0; font-size: 1.15rem;">Your health score is an objective calculation based on three world-class nutritional standards.</p>
+            <h2>The Methodology</h2>
+            <p style="max-width:700px; margin:15px auto 0; font-size: 1.1rem;">An objective calculation based on world-class peer-reviewed scientific evidence.</p>
         </div>
 
         <div class="methodology-box">
-            <h4 style="color:var(--teal-deep); font-weight:800; font-size: 1.3rem;">Single Source of Truth: CartIQ Scoring</h4>
+            <h4 style="color:var(--teal-deep); font-weight:800; font-size: 1.2rem;">Single Source of Truth: CartIQ Scoring</h4>
             <div class="formula">
                 Score = Nutri-Score (60%) + NOVA Group (30%) + Additives (10%)
             </div>
 
             <ul class="method-list">
-                <li><strong>Nutri-Score:</strong> Measures overall nutritional density, penalizing excessive sugar and sodium while rewarding protein and fiber.</li>
-                <li><strong>NOVA Group:</strong> Identifies ultra-processing levels to help you move away from industrial food substances.</li>
-                <li><strong>Additive Guard:</strong> Enforces EFSA, IARC & EPA standards—flagging 27+ restricted additives including E171, nitrites, and aspartame.</li>
+                <li><strong>Nutri-Score:</strong> Measures overall nutritional density based on sugar, salt, and protein.</li>
+                <li><strong>NOVA Group:</strong> Identifies processing levels from fresh to ultra-processed.</li>
+                <li><strong>Additive Guard:</strong> Flags 27+ restricted additives based on EFSA, IARC, & EPA standards.</li>
             </ul>
         </div>
 
         <div class="transparency-footer">
-            All scores are calculated using lab-verified data from <strong>OpenFoodFacts</strong> combined with <strong>EFSA</strong>, <strong>IARC</strong>, and <strong>EPA</strong> regulatory standards. Scientific red flags include E171 (Titanium Dioxide), nitrites, and IARC Group 2B carcinogens. No AI guessing—only peer-reviewed evidence powering your Barcode Scanner and Discovery Dinner.
+            All scores are calculated using lab-verified data from <strong>OpenFoodFacts</strong> combined with <strong>EFSA</strong>, <strong>IARC</strong>, and <strong>EPA</strong> regulatory standards. Scientific red flags include E171, nitrites, and aspartame.
         </div>
     </section>
 
-    <section class="showcase-grid" style="grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));">
+    <section class="showcase-grid">
         <div class="reveal">
-            <div class="phone-mockup" style="aspect-ratio: 16/10; height:auto; border-radius:24px;">
-                <img src="cartIQ%20Score.jpg" alt="CartIQ Score Detail">
-            </div>
+            <div class="phone-mockup"><img src="cartIQ%20Score.jpg" alt="CartIQ Score"></div>
             <p class="mockup-label">Basket Optimization</p>
         </div>
-        <div class="reveal">
-            <div class="phone-mockup" style="aspect-ratio: 16/10; height:auto; border-radius:24px;">
-                <img src="quicksettings.jpg" alt="Quick Actions">
-            </div>
+        <div class="reveal" style="transition-delay: 0.1s;">
+            <div class="phone-mockup"><img src="quicksettings.jpg" alt="Quick Settings"></div>
             <p class="mockup-label">Quick Actions Drawer</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.2s;">
+            <div class="phone-mockup"><img src="homescreen.jpg" alt="Sync Features" style="filter: hue-rotate(45deg);"></div>
+            <p class="mockup-label">Family Sync Hub</p>
         </div>
     </section>
 
@@ -301,32 +240,26 @@
         <div style="margin-top:25px;">
             <a href="privacy-policy.html" style="color:var(--text-muted); margin:0 15px; text-decoration:none;">Privacy</a>
             <a href="terms-of-service.html" style="color:var(--text-muted); margin:0 15px; text-decoration:none;">Terms</a>
-            <a href="mailto:support@cartiqhub.com" style="color:var(--text-muted); margin:0 15px; text-decoration:none;">Support</a>
         </div>
     </footer>
 </div>
 
 <script>
-    // Theme Toggle Logic
     function toggleTheme() {
         const body = document.body;
         const btn = document.getElementById('themeBtn');
         const isDark = body.getAttribute('data-theme') === 'dark';
-        
         body.setAttribute('data-theme', isDark ? 'light' : 'dark');
         btn.innerHTML = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
     }
 
-    // High-Performance Scroll Reveal
-    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Reveal only once
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 </script>
