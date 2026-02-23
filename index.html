@@ -4,310 +4,470 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="jXV-AH7gtazcscauvhimLLoNnkPUEdBfxnm_YXj1jQ8" />
-    <title>CartIQ Hub – Smart Shopping Made Simple</title>
-    <meta name="description" content="CartIQ Hub: The AI-powered shopping assistant. SmartScan, VoiceFlow, and the Evidence-Engine methodology for healthier households." />
+    <title>CartIQ Hub – AI Health Engine & Smart Shopping</title>
+    <meta name="description" content="Stop guessing. Start knowing. CartIQ Hub transforms grocery shopping into a high-performance wellness experience with AI auditing, SmartScan, and Discovery Dinners." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --green-primary: #22c55e;
-            --teal-deep: #0f766e;
-            --bg-sandy: #fdfcf9;
-            --surface-pure: #ffffff;
+            --primary-green: #22c55e;
+            --primary-glow: rgba(34, 197, 94, 0.4);
+            --deep-teal: #0f766e;
+            --bg-color: #f8fafc;
             --text-main: #0f172a;
             --text-muted: #64748b;
-            --border: #e2e8f0;
-            --radius-lg: 32px;
-            --radius-md: 18px;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Liquid Glass Variables (Light) */
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
         [data-theme="dark"] {
-            --bg-sandy: #0b1120;
-            --surface-pure: #161e2d;
+            --bg-color: #0b1120;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border: #2d3748;
+            /* Liquid Glass Variables (Dark) */
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'DM Sans', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-sandy);
+            background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
             overflow-x: hidden;
-            transition: background-color 0.3s ease;
+            position: relative;
         }
 
-        .container { max-width: 1200px; margin: auto; padding: 0 24px; }
+        /* Background Ambient Glows */
+        .ambient-glow-1 {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+        .ambient-glow-2 {
+            position: absolute;
+            top: 40%;
+            right: -10%;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(15, 118, 110, 0.3) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(80px);
+        }
 
-        /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
-        .logo { font-size: 1.6rem; font-weight: 800; color: var(--green-primary); display: flex; align-items: center; gap: 10px; }
-        
-        .theme-toggle {
-            background: var(--surface-pure);
-            border: 1px solid var(--border);
-            padding: 10px 20px;
-            border-radius: 50px;
+        /* Container & Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Liquid Glass Card Base */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--glass-shadow);
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .theme-btn {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
             font-size: 0.9rem;
-            color: var(--text-main);
-            transition: var(--transition);
         }
 
-        /* Hero */
-        .hero { text-align: center; padding: 80px 0 60px; }
-        .hero-badge {
-            background: #dcfce7;
-            color: var(--teal-deep);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-block;
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
             margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        [data-theme="dark"] .hero-badge { background: #064e3b; color: #34d399; }
-        .hero h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.04em; }
-        .hero p { max-width: 650px; margin: 0 auto 40px; font-size: 1.3rem; color: var(--text-muted); }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary-green), var(--deep-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary-green);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px -5px var(--primary-glow);
+        }
 
-        /* Buttons */
-        .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 18px 36px; border-radius: 16px; text-decoration: none; font-weight: 700; transition: var(--transition); display: inline-flex; align-items: center; gap: 10px; }
-        .btn-primary { background: var(--green-primary); color: white; box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2); }
-        .btn-outline { border: 1px solid var(--border); color: var(--text-main); background: var(--surface-pure); }
-
-        /* Unified Grid System */
-        .showcase-grid {
+        /* Features Grid */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 48px;
+            letter-spacing: -0.03em;
+        }
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 60px 0 80px;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        .phone-mockup {
-            background: #000;
-            border: 10px solid #1e293b;
-            border-radius: 38px;
+        /* The Evidence Engine Showcase */
+        .evidence-engine {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
             overflow: hidden;
-            aspect-ratio: 9/19.5;
-            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);
-            transition: var(--transition);
         }
-        .phone-mockup img { width: 100%; height: 100%; object-fit: cover; }
-        .mockup-label { margin-top: 15px; font-weight: 700; text-align: center; font-size: 1.1rem; color: var(--text-main); }
+        .evidence-engine::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .evidence-engine h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+        .evidence-engine p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .evidence-engine-highlight {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
 
-        /* --- HOW IT WORKS / EVIDENCE ENGINE --- */
-        .impact-section {
-            background: var(--surface-pure);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 80px 60px;
-            margin: 100px 0;
-            box-shadow: 0 40px 100px -20px rgba(0,0,0,0.05);
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .impact-header { text-align: center; margin-bottom: 50px; }
-        .impact-header h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
-
-        /* Animated CSS Donut Chart for Evidence Engine */
-        .chart-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        .donut-container {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            background: conic-gradient(
-                var(--green-primary) 0% 60%, 
-                #34d399 60% 90%, 
-                #059669 90% 100%
-            );
+        .pricing-card {
             position: relative;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
-            animation: rotateIn 1.5s ease-out;
+            flex-direction: column;
         }
-        .donut-container::after {
-            content: "85";
+        .pricing-card.premium {
+            border: 2px solid var(--primary-green);
+            background: linear-gradient(145deg, var(--glass-bg), rgba(34, 197, 94, 0.05));
+        }
+        .premium-badge {
             position: absolute;
-            width: 170px;
-            height: 170px;
-            background: var(--surface-pure);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--green-primary);
-        }
-
-        @keyframes rotateIn {
-            from { transform: rotate(-180deg) scale(0.5); opacity: 0; }
-            to { transform: rotate(0deg) scale(1); opacity: 1; }
-        }
-
-        .methodology-box {
-            background: rgba(34, 197, 94, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(15, 118, 110, 0.15);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .formula {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
-            color: var(--teal-deep);
-            background: rgba(255,255,255,0.6);
-            padding: 15px 25px;
+            top: -15px;
+            right: 24px;
+            background: var(--primary-green);
+            color: white;
+            padding: 4px 12px;
             border-radius: 12px;
-            display: inline-block;
-            margin: 25px 0;
-            border: 1px dashed var(--teal-deep);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
         }
-        [data-theme="dark"] .formula { background: rgba(0,0,0,0.4); color: #4ade80; border-color: #4ade80; }
+        .price-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+        .price-amount span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .price-features {
+            list-style: none;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+        .price-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+        .check {
+            color: var(--primary-green);
+            font-weight: bold;
+        }
 
-        .method-list { list-style: none; text-align: left; max-width: 750px; margin: 0 auto; }
-        .method-list li { margin-bottom: 15px; padding-left: 30px; position: relative; color: var(--text-muted); }
-        .method-list li::before { content: "✓"; color: var(--green-primary); position: absolute; left: 0; font-weight: 900; }
+        /* Security & Design */
+        .security-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
 
-        .transparency-footer { font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border); }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 48px 0;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 60px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: 500;
+        }
 
-        /* Animation Utility */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        footer { padding: 100px 0 60px; text-align: center; border-top: 1px solid var(--border); }
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         @media (max-width: 768px) {
-            .impact-section { padding: 40px 24px; }
-            .hero h1 { font-size: 2.6rem; }
+            .hero { padding: 40px 0; }
+            .glass-card { padding: 1.5rem; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .evidence-engine h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body data-theme="dark">
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
 
-<div class="container">
-    <nav>
-        <div class="logo">🛒 CartIQ Hub</div>
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light Mode</button>
-    </nav>
+    <div class="container">
+        <nav>
+            <div class="logo">🛒 CartIQ Hub</div>
+            <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀️ Light Mode</button>
+        </nav>
 
-    <header class="hero reveal">
-        <span class="hero-badge">Next-Gen Family Shopping</span>
-        <h1>Smart Shopping <br><span style="color: var(--green-primary)">Made Simple.</span></h1>
-        <p>The calm, intelligent shopping assistant that builds healthier households with data-driven insights.</p>
-        <div class="btn-group">
-             <a href="#impact" class="btn btn-primary">How it Works</a>
-             <a href="mailto:support@cartiqhub.com" class="btn btn-outline">Contact Support</a>
-        </div>
-    </header>
+        <section class="hero reveal">
+            <h1>Stop guessing.<br><span>Start knowing.</span></h1>
+            <p>CartIQ Hub transforms grocery shopping into a high-performance wellness experience. It isn't just a list—it’s a sophisticated AI-powered system designed to audit your cart, optimize your family’s nutrition, and bring excitement back to your dinner table.</p>
+            <a href="#pricing" class="cta-btn">Start 7-Day Free Trial</a>
+        </section>
 
-    <section class="showcase-grid">
-        <div class="reveal">
-            <div class="phone-mockup"><img src="homescreen.jpg" alt="Home Screen"></div>
-            <p class="mockup-label">Intelligent Home</p>
-        </div>
-        <div class="reveal" style="transition-delay: 0.1s;">
-            <div class="phone-mockup"><img src="SmartScanAI.jpg" alt="Smart Scan"></div>
-            <p class="mockup-label">SmartScan AI</p>
-        </div>
-        <div class="reveal" style="transition-delay: 0.2s;">
-            <div class="phone-mockup"><img src="voiceflow.jpg" alt="Voice Flow"></div>
-            <p class="mockup-label">VoiceFlow Entry</p>
-        </div>
-    </section>
-
-    <section class="impact-section reveal" id="impact">
-        <div class="impact-header">
-            <span style="color:var(--green-primary); font-weight:bold; text-transform:uppercase; letter-spacing:2px; font-size:0.8rem;">The Evidence-Engine</span>
-            <h2>How it Works</h2>
-            <p style="max-width:700px; margin:15px auto 0; font-size: 1.1rem;">Your health score is an objective calculation based on three world-class peer-reviewed scientific standards.</p>
-        </div>
-
-        <div class="chart-visual">
-            <div class="donut-container"></div>
-        </div>
-
-        <div class="methodology-box">
-            <h4 style="color:var(--teal-deep); font-weight:800; font-size: 1.2rem;">Single Source of Truth: CartIQ Scoring</h4>
-            <div class="formula">
-                Score = Nutri-Score (60%) + NOVA Group (30%) + Additives (10%)
+        <section class="reveal">
+            <h2 class="section-title">🚀 Core Features</h2>
+            <div class="features-grid">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>SmartScan AI</h3>
+                    <p>Scan any barcode to get an instant 0-100 health score. Our evidence-based engine identifies NOVA classifications, Nutri-Scores, and harmful additives so you can shop with confidence.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Basket Optimizer</h3>
+                    <p>Use our "Swap Now" technology to analyze your entire cart. Let the AI find cleaner, healthier alternatives for your favorite staples in seconds.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>Discovery Dinner</h3>
+                    <p>Stuck in a meal rut? Tell our AI Chef what you’re craving—from "Spicy Caribbean" to "Healthy Italian"—and get personalized recipes with ingredients that sync straight to your list.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">🎙️</div>
+                    <h3>VoiceFlow AI</h3>
+                    <p>On the move? Just talk to CartIQ. Our advanced parsing understands quantities, items, and stores effortlessly, making list-building faster than ever.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Clean Cart Streaks</h3>
+                    <p>Track your progress! Watch your "Clean Cart" percentage climb and hit milestones that prove you’re making the best choices for your family’s future.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Family Collaboration</h3>
+                    <p>Sync lists instantly across all devices. Perfect for coordinating household shopping or planning events with family and friends.</p>
+                </div>
             </div>
+        </section>
 
-            <ul class="method-list">
-                <li><strong>Nutri-Score (60%):</strong> Measures overall nutritional density based on sugar, salt, and protein.</li>
-                <li><strong>NOVA Group (30%):</strong> Identifies processing levels from fresh to ultra-processed.</li>
-                <li><strong>Additive Guard (10%):</strong> Flags 27+ restricted additives based on EFSA, IARC, & EPA standards.</li>
-            </ul>
-        </div>
+        <section class="reveal evidence-engine glass-card">
+            <div style="font-size: 3.5rem; margin-bottom: 16px;">🔬</div>
+            <h2>The Evidence Engine</h2>
+            <p>
+                Standard apps just count calories. CartIQ audits quality. Our proprietary methodology cross-references raw nutritional data with <span class="evidence-engine-highlight">NOVA classification standards</span> and <span class="evidence-engine-highlight">Nutri-Score guidelines</span>. Processed through advanced AI, it delivers a definitive 0-100 health score, protecting you from ultra-processed additives and hidden chemicals. It's rigorous nutritional science, simplified for your cart.
+            </p>
+        </section>
 
-        <div class="transparency-footer">
-            All scores are calculated using lab-verified data from <strong>OpenFoodFacts</strong> combined with <strong>EFSA</strong>, <strong>IARC</strong>, and <strong>EPA</strong> regulatory standards. Scientific red flags include E171, nitrites, and aspartame.
-        </div>
-    </section>
+        <section id="pricing" class="reveal">
+            <h2 class="section-title">✨ Premium Experience</h2>
+            <div class="pricing-grid">
+                <div class="glass-card pricing-card">
+                    <div class="price-title">Free Tier</div>
+                    <div class="price-amount">$0 <span>/forever</span></div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Manage up to 5 Smart Lists</li>
+                        <li><span class="check">✓</span> Basic Health Insights</li>
+                        <li><span class="check">✓</span> Real-Time Sync</li>
+                    </ul>
+                    <a href="#" class="theme-btn" style="text-align: center; display: block; text-decoration: none;">Download Free</a>
+                </div>
 
-    <section class="showcase-grid">
-        <div class="reveal">
-            <div class="phone-mockup"><img src="cartIQ%20Score.jpg" alt="CartIQ Score"></div>
-            <p class="mockup-label">Basket Optimization</p>
-        </div>
-        <div class="reveal" style="transition-delay: 0.1s;">
-            <div class="phone-mockup"><img src="quicksettings.jpg" alt="Quick Settings"></div>
-            <p class="mockup-label">Quick Actions Drawer</p>
-        </div>
-        <div class="reveal" style="transition-delay: 0.2s;">
-            <div class="phone-mockup"><img src="Chart.jpg" alt="Health Tracking"></div>
-            <p class="mockup-label">Impact Tracking</p>
-        </div>
-    </section>
+                <div class="glass-card pricing-card premium">
+                    <div class="premium-badge">7-Day Free Trial</div>
+                    <div class="price-title">CartIQ Premium</div>
+                    <div class="price-amount">$4.99 <span>/month</span></div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Unlimited Smart Lists</li>
+                        <li><span class="check">✓</span> Full SmartScan AI Health Analysis</li>
+                        <li><span class="check">✓</span> Advanced Basket Optimizer</li>
+                        <li><span class="check">✓</span> Unlimited "Ask The Chef" Consultations</li>
+                        <li><span class="check">✓</span> Priority Support & Ad-Free Experience</li>
+                    </ul>
+                    <a href="#" class="cta-btn" style="text-align: center;">Start Free Trial</a>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <div class="footer-credit">Designed with ❤️ for healthier households in Port St. Lucie.</div>
-        <p style="color: var(--text-muted); font-size:0.9rem;">© 2026 CartIQ Hub • Version 1.0.4</p>
-        <div style="margin-top:25px;">
-            <a href="privacy-policy.html" style="color:var(--text-muted); margin:0 15px; text-decoration:none;">Privacy</a>
-            <a href="terms-of-service.html" style="color:var(--text-muted); margin:0 15px; text-decoration:none;">Terms</a>
-        </div>
-    </footer>
-</div>
+        <section class="security-section reveal glass-card">
+            <h2 style="font-size: 2rem; margin-bottom: 24px;">🔒 Security & Design</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; text-align: left; max-width: 800px; margin: 0 auto;">
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Liquid Glass UI</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">A premium, theme-aware design with smooth animations and deep Dark Mode support.</p>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Privacy First</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Biometric authentication (Fingerprint/Face ID) and encrypted cloud storage keep your data yours.</p>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Multilingual</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Designed for the modern household, seamlessly supporting multiple languages including Creole.</p>
+                </div>
+            </div>
+        </section>
 
-<script>
-    function toggleTheme() {
-        const body = document.body;
-        const btn = document.getElementById('themeBtn');
-        const isDark = body.getAttribute('data-theme') === 'dark';
-        body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        btn.innerHTML = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
-    }
+        <footer>
+            <div style="font-weight: 600; margin-bottom: 12px;">Designed with ❤️ for healthier households in Port St. Lucie.</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">© 2026 CartIQ Hub • Version 1.0</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </footer>
+    </div>
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
+    <script>
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            
+            // If it IS dark right now, clicking sets it to light. 
+            // So the button should update to say "Dark Mode"
+            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            btn.innerHTML = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
+        }
+
+        // Scroll Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
         });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-</script>
-
+    </script>
 </body>
 </html>
