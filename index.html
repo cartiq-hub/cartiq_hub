@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="jXV-AH7gtazcscauvhimLLoNnkPUEdBfxnm_YXj1jQ8" />
     <title>CartIQ Hub – AI Health Engine & Smart Shopping</title>
-    <meta name="description" content="Stop guessing. Start knowing. CartIQ Hub uses a 4-Tier AI Engine to audit your grocery cart, track calories automatically, and optimize your health." />
+    <meta name="description" content="Stop guessing. Start knowing. CartIQ Hub transforms grocery shopping into a high-performance wellness experience with AI auditing, SmartScan, and Discovery Dinners." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,342 +13,170 @@
 
     <style>
         :root {
-            --primary-green: #00c853;
-            --primary-glow: rgba(0, 200, 83, 0.4);
-            --deep-teal: #0d7c8e;
+            --primary-green: #22c55e;
+            --primary-glow: rgba(34, 197, 94, 0.4);
+            --deep-teal: #0f766e;
             --bg-color: #f8fafc;
             --text-main: #0f172a;
             --text-muted: #64748b;
-            
-            /* Liquid Glass Variables (Light) */
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(0, 0, 0, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.4);
             --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
-
         [data-theme="dark"] {
             --bg-color: #0b1120;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            /* Liquid Glass Variables (Dark) */
-            --glass-bg: rgba(15, 23, 42, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'DM Sans', sans-serif;
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Atmospheric Mesh Gradients */
-        .mesh-glow {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 10% 10%, rgba(0, 200, 83, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(13, 124, 142, 0.1) 0%, transparent 40%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Liquid Glass Card System */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            padding: 2.5rem;
-            box-shadow: var(--glass-shadow);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 32px 0;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            color: var(--primary-green);
-        }
-
-        .hero {
-            text-align: center;
-            padding: 100px 0 80px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5rem);
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.05em;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--primary-green), var(--deep-teal));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto 44px;
-        }
-
-        /* App Store Buttons */
-        .store-badge {
-            height: 60px;
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .store-badge:hover { transform: scale(1.05); }
-
-        /* Feature Section */
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 48px;
-            letter-spacing: -0.03em;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 28px;
-            margin-bottom: 100px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        /* 4-Tier Engine Showcase */
-        .engine-showcase {
-            margin-bottom: 100px;
-            text-align: center;
-        }
-
-        .engine-pill {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 20px;
-            background: var(--primary-green);
-            color: white;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 0.9rem;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Pricing Card Refinement */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            max-width: 950px;
-            margin: 0 auto 100px;
-        }
-
-        .premium-card {
-            border: 2px solid var(--primary-green);
-            background: linear-gradient(145deg, var(--glass-bg), rgba(0, 200, 83, 0.05));
-        }
-
-        .price-amount {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin: 20px 0;
-        }
-
-        .price-amount span { font-size: 1.2rem; color: var(--text-muted); font-weight: 500; }
-
-        .btn-primary {
-            display: block;
-            background: var(--primary-green);
-            color: white;
-            padding: 18px;
-            border-radius: 50px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 20px -5px var(--primary-glow);
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px var(--primary-glow);
-        }
-
-        /* Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-muted);
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .hero { padding: 60px 0; }
-            .features-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2rem; }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'DM Sans', sans-serif; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; position: relative; }
+        .ambient-glow-1, .ambient-glow-2 { position: absolute; z-index: -1; filter: blur(80px); }
+        .ambient-glow-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); }
+        .ambient-glow-2 { top: 40%; right: -10%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(15, 118, 110, 0.3) 0%, transparent 70%); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .glass-card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 2.5rem; box-shadow: var(--glass-shadow); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; display: flex; align-items: center; gap: 8px; }
+        .theme-btn { background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); color: var(--text-main); padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+        .hero { text-align: center; padding: 80px 0 60px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(135deg, var(--primary-green), var(--deep-teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; line-height: 1.6; }
+        .cta-btn { display: inline-block; background: var(--primary-green); color: white; padding: 16px 36px; border-radius: 30px; font-size: 1.1rem; font-weight: 700; text-decoration: none; box-shadow: 0 10px 25px -5px var(--primary-glow); transition: transform 0.2s, box-shadow 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 35px -5px var(--primary-glow); }
+        .section-title { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 48px; letter-spacing: -0.03em; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 60px; }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 16px; }
+        .feature-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+        .feature-card p { color: var(--text-muted); line-height: 1.5; }
+        .evidence-engine { text-align: center; margin-bottom: 80px; position: relative; overflow: hidden; }
+        .evidence-engine::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 60%); z-index: -1; pointer-events: none; }
+        .evidence-engine h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.03em; }
+        .evidence-engine p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto; line-height: 1.7; }
+        .evidence-engine-highlight { color: var(--primary-green); font-weight: 700; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .pricing-card { position: relative; display: flex; flex-direction: column; }
+        .pricing-card.premium { border: 2px solid var(--primary-green); background: linear-gradient(145deg, var(--glass-bg), rgba(34, 197, 94, 0.05)); }
+        .premium-badge { position: absolute; top: -15px; right: 24px; background: var(--primary-green); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+        .price-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+        .price-amount { font-size: 3rem; font-weight: 800; margin-bottom: 24px; }
+        .price-amount span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+        .price-features { list-style: none; margin-bottom: 32px; flex-grow: 1; }
+        .price-features li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 500; }
+        .check { color: var(--primary-green); font-weight: bold; }
+        .security-section { text-align: center; margin-bottom: 80px; }
+        footer { text-align: center; padding: 48px 0; border-top: 1px solid var(--glass-border); margin-top: 60px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 16px; font-weight: 500; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) { .hero { padding: 40px 0; } .glass-card { padding: 1.5rem; } .pricing-grid { grid-template-columns: 1fr; } .evidence-engine h2 { font-size: 2.2rem; } }
     </style>
 </head>
 <body data-theme="dark">
-    <div class="mesh-glow"></div>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
 
     <div class="container">
         <nav>
             <div class="logo">🛒 CartIQ Hub</div>
-            <button onclick="toggleTheme()" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem; box-shadow: none;" id="themeBtn">☀️ Light Mode</button>
+            <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀️ Light Mode</button>
         </nav>
 
-        <header class="hero reveal">
-            <div class="engine-pill">4-Tier Intelligence Engine</div>
-            <h1>Shop Smarter.<br><span>Live Healthier.</span></h1>
-            <p>CartIQ turns your grocery list into a high-performance wellness concierge. Automatically track nutrition, audit your cart for additives, and discover AI-powered meals as you shop.</p>
-            
-            <a href="https://play.google.com/store/apps/details?id=com.odneyj.cartiq" target="_blank">
-                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="store-badge" />
-            </a>
-        </header>
+        <section class="hero reveal">
+            <h1>Stop guessing.<br><span>Start knowing.</span></h1>
+            <p>CartIQ Hub transforms grocery shopping into a high-performance wellness experience. It isn't just a list—it’s a sophisticated AI-powered system designed to audit your cart, optimize your family’s nutrition, and bring excitement back to your dinner table.</p>
+            <a href="https://cartiqai.app/" class="cta-btn">Start 7-Day Free Trial</a>
+        </section>
 
         <section class="reveal">
-            <h2 class="section-title">Revolutionizing Your Cart</h2>
+            <h2 class="section-title">🚀 Core Features</h2>
             <div class="features-grid">
-                <div class="glass-card feature-card">
-                    <h3><span>⚡</span> Energy Hub</h3>
-                    <p>The world's first friction-free calorie tracker. Check items off your list as you shop, and your daily intake updates automatically. No manual logging required.</p>
-                </div>
-                <div class="glass-card feature-card">
-                    <h3><span>🔎</span> SmartScan AI</h3>
-                    <p>Scan any barcode for a 0-100 score. We verify nutrition through our 4-tier engine, flagging harmful additives and ultra-processed indicators.</p>
-                </div>
-                <div class="glass-card feature-card">
-                    <h3><span>👨‍🍳</span> Discovery Dinner</h3>
-                    <p>Your AI Chef with "Portion Math." Generate recipes based on your cravings and get the exact calorie breakdown for your specific serving size.</p>
-                </div>
-                <div class="glass-card feature-card">
-                    <h3><span>🧠</span> Basket Optimizer</h3>
-                    <p>Audit your entire list before checkout. Our AI finds cleaner, higher-protein, or lower-sugar swaps for your staples in one tap.</p>
-                </div>
-                <div class="glass-card feature-card">
-                    <h3><span>🎙️</span> VoiceFlow</h3>
-                    <p>Just talk. Our advanced NLP parses quantities and items effortlessly, building your lists hands-free in the middle of a busy kitchen.</p>
-                </div>
-                <div class="glass-card feature-card">
-                    <h3><span>📊</span> Health Dashboard</h3>
-                    <p>Track your Clean Cart Streaks and long-term habits with beautiful interactive charts powered by our Liquid Glass design system.</p>
-                </div>
+                <div class="glass-card feature-card"><div class="feature-icon">🛒</div><h3>SmartScan AI</h3><p>Scan any barcode to get an instant 0-100 health score. Our evidence-based engine identifies NOVA classifications, Nutri-Scores, and harmful additives so you can shop with confidence.</p></div>
+                <div class="glass-card feature-card"><div class="feature-icon">⚖️</div><h3>Basket Optimizer</h3><p>Use our "Swap Now" technology to analyze your entire cart. Let the AI find cleaner, healthier alternatives for your favorite staples in seconds.</p></div>
+                <div class="glass-card feature-card"><div class="feature-icon">👨‍🍳</div><h3>Discovery Dinner</h3><p>Stuck in a meal rut? Tell our AI Chef what you’re craving—from "Spicy Caribbean" to "Healthy Italian"—and get personalized recipes with ingredients that sync straight to your list.</p></div>
+                <div class="glass-card feature-card"><div class="feature-icon">🎙️</div><h3>VoiceFlow AI</h3><p>On the move? Just talk to CartIQ. Our advanced parsing understands quantities, items, and stores effortlessly, making list-building faster than ever.</p></div>
+                <div class="glass-card feature-card"><div class="feature-icon">📈</div><h3>Clean Cart Streaks</h3><p>Track your progress! Watch your "Clean Cart" percentage climb and hit milestones that prove you’re making the best choices for your family’s future.</p></div>
+                <div class="glass-card feature-card"><div class="feature-icon">👥</div><h3>Family Collaboration</h3><p>Sync lists instantly across all devices. Perfect for coordinating household shopping or planning events with family and friends.</p></div>
             </div>
         </section>
 
-        <section class="reveal engine-showcase glass-card">
-            <h2 style="font-size: 2.2rem; margin-bottom: 20px;">The Most Accurate Data on Earth</h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 850px; margin: 0 auto 32px;">
-                We don't use community "guesses." CartIQ verifies every product across a multi-source intelligence system including <strong>FatSecret Premier</strong>, <strong>USDA Scientific FoodData</strong>, and <strong>Open Food Facts</strong>.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-                <span style="font-weight: 800; opacity: 0.6;">✓ FATSECRET PREMIER</span>
-                <span style="font-weight: 800; opacity: 0.6;">✓ USDA SCIENTIFIC</span>
-                <span style="font-weight: 800; opacity: 0.6;">✓ OPEN FOOD FACTS</span>
-            </div>
+        <section class="reveal evidence-engine glass-card">
+            <div style="font-size: 3.5rem; margin-bottom: 16px;">🔬</div>
+            <h2>The Evidence Engine</h2>
+            <p>CartIQ audits quality. Our proprietary methodology cross-references raw nutritional data with <span class="evidence-engine-highlight">NOVA classification standards</span> and <span class="evidence-engine-highlight">Nutri-Score guidelines</span>. Processed through advanced AI, it delivers a definitive 0-100 health score, protecting you from ultra-processed additives and hidden chemicals. It's rigorous nutritional science, simplified for your cart.</p>
         </section>
 
         <section id="pricing" class="reveal">
-            <h2 class="section-title">Upgrade Your Health</h2>
+            <h2 class="section-title">✨ Premium Experience</h2>
             <div class="pricing-grid">
-                <div class="glass-card">
-                    <h3 style="font-size: 1.6rem; font-weight: 800;">Free Tier</h3>
-                    <div class="price-amount">$0<span>/forever</span></div>
-                    <ul style="list-style: none; margin-bottom: 30px;">
-                        <li>✓ 5 Smart Grocery Lists</li>
-                        <li>✓ Basic Health Analysis</li>
-                        <li>✓ Real-Time Family Sync</li>
+                <div class="glass-card pricing-card">
+                    <div class="price-title">Free Tier</div>
+                    <div class="price-amount">$0 <span>/forever</span></div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Manage up to 5 Smart Lists</li>
+                        <li><span class="check">✓</span> Basic Health Insights</li>
+                        <li><span class="check">✓</span> Real-Time Sync</li>
                     </ul>
-                    <a href="https://play.google.com/store/apps/details?id=com.odneyj.cartiq" class="btn-primary" style="background: transparent; border: 2px solid var(--primary-green); color: var(--primary-green); box-shadow: none;">Download Free</a>
+                    <a href="https://cartiqai.app/" class="theme-btn" style="text-align: center; display: block; text-decoration: none;">Download Free</a>
                 </div>
 
-                <div class="glass-card premium-card">
-                    <div style="background: var(--primary-green); color: white; display: inline-block; padding: 4px 12px; border-radius: 8px; font-weight: 800; font-size: 0.75rem; margin-bottom: 10px;">7-DAY FREE TRIAL</div>
-                    <h3 style="font-size: 1.6rem; font-weight: 800;">CartIQ Premium</h3>
-                    <div class="price-amount">$4.99<span>/month</span></div>
-                    <ul style="list-style: none; margin-bottom: 30px;">
-                        <li>✓ Unlimited Smart Lists & Energy Hub</li>
-                        <li>✓ Full 4-Tier Nutritional Analysis</li>
-                        <li>✓ AI Basket Optimization Swaps</li>
-                        <li>✓ Unlimited "Ask The Chef" Culinary Logic</li>
+                <div class="glass-card pricing-card premium">
+                    <div class="premium-badge">7-Day Free Trial</div>
+                    <div class="price-title">CartIQ Premium</div>
+                    <div class="price-amount">$4.99 <span>/month</span></div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Unlimited Smart Lists</li>
+                        <li><span class="check">✓</span> Full SmartScan AI Health Analysis</li>
+                        <li><span class="check">✓</span> Advanced Basket Optimizer</li>
+                        <li><span class="check">✓</span> Unlimited "Ask The Chef" Consultations</li>
+                        <li><span class="check">✓</span> Priority Support & Ad-Free Experience</li>
                     </ul>
-                    <a href="https://play.google.com/store/apps/details?id=com.odneyj.cartiq" class="btn-primary">Start Free Trial</a>
+                    <a href="https://cartiqai.app/" class="cta-btn" style="text-align: center;">Start Free Trial</a>
+                </div>
+            </div>
+        </section>
+
+<section class="reveal glass-card" style="margin-bottom: 80px; text-align: center;">
+    <div style="font-size: 3rem; margin-bottom: 16px;">🌍</div>
+    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;">The Most Accurate Data on Earth</h2>
+    <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 24px; line-height: 1.6;">
+        We don't use community "guesses." CartIQ verifies every product across a multi-source intelligence system including <strong>FatSecret Premier</strong>, <strong>USDA Scientific FoodData</strong>, and <strong>Open Food Facts</strong>.
+    </p>
+    <ul style="list-style: none; padding: 0; font-weight: 600; font-size: 1.05rem; color: var(--primary-green); display: inline-block; text-align: left;">
+        <li>✓ FATSECRET PREMIER</li>
+        <li>✓ USDA SCIENTIFIC</li>
+        <li>✓ OPEN FOOD FACTS</li>
+    </ul>
+</section>
+
+        <section class="security-section reveal glass-card">
+            <h2 style="font-size: 2rem; margin-bottom: 24px;">🔒 Security & Design</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; text-align: left; max-width: 800px; margin: 0 auto;">
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Liquid Glass UI</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">A premium, theme-aware design with smooth animations and deep Dark Mode support.</p>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Privacy First</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Biometric authentication (Fingerprint/Face ID) and encrypted cloud storage keep your data yours.</p>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Multilingual</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Designed for the modern household, seamlessly supporting multiple languages including Creole.</p>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p style="margin-bottom: 20px;">Designed for healthy households in Port St. Lucie, FL. 🌴</p>
+            <div style="font-weight: 600; margin-bottom: 12px;">Designed with ❤️ for healthier households in Florida.</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">© 2026 CartIQ Hub • Version 1.0</p>
             <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="mailto:support@cartiq.app">Contact Support</a>
+                <a href="https://cartiqai.app/privacy-policy.html">Privacy Policy</a>
+                <a href="https://cartiqai.app/terms-of-service.html">Terms of Service</a>
             </div>
-            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">© 2026 CartIQ Hub. All rights reserved.</p>
         </footer>
     </div>
 
@@ -360,14 +188,10 @@
             body.setAttribute('data-theme', isDark ? 'light' : 'dark');
             btn.innerHTML = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
         }
-
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
